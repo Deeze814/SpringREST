@@ -1,0 +1,28 @@
+(1) Create new user
+	--URL: http://localhost:8080/SpringREST/rest/users (As a POST)
+	--Data:
+	{
+	    "userId":3,
+	    "firstName":"Christy",
+	    "lastName":"Ezell"
+	}
+
+(2) Get users
+	--Url: http://localhost:8080/SpringREST/rest/users/ (As a GET)
+	
+(3) Update a user
+	--URL: http://localhost:8080/SpringREST/rest/users/3
+	--Data:   
+	  {
+	    "userID": 3,
+	    "firstName": "Daniel",
+	    "lastName": "Ezell",
+	    "passWord": "NewPass",
+	    "detail": null,
+	    "birthDate": "3/02/1982",
+	    "gender": "Male",
+	    "country": "USA",
+	    "smoking": false,
+	    "email": "CptDan@yahoo.com"
+	  }
+		

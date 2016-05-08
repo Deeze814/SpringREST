@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rest.domain.User;
-import com.sample.repo.UserRepository;
+import com.rest.repo.UserRepository;
 
 @Service
 public class UserService {

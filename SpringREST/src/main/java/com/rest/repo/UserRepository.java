@@ -1,4 +1,4 @@
-package com.sample.repo;
+package com.rest.repo;
 
 import java.util.ArrayList;
 import java.util.HashMap;

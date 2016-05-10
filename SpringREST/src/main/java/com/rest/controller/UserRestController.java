@@ -22,8 +22,10 @@ public class UserRestController {
 	private UserService userService;
 	
 	@RequestMapping(value="/users",method=RequestMethod.POST)
-	public void save(@RequestBody User user){
-		userService.saveUser(user);
+	public  ResponseEntity<Boolean> save(@RequestBody User user){
+		return userService.saveUser(user) 
+			? new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK)
+			: new ResponseEntity<Boolean>(Boolean.FALSE, HttpStatus.BAD_REQUEST);
 	}
 	
 	@RequestMapping(value="/users",method=RequestMethod.GET)
@@ -36,12 +38,17 @@ public class UserRestController {
 		return userService.findUser(id);
 	}
 	
-	@RequestMapping(value="/users/{id}",method=RequestMethod.POST)
-	public void update(@PathVariable("id") int id, @RequestBody User user){
-		userService.updateUser(id, user);
+	@RequestMapping(value="/users/{id}",method=RequestMethod.PUT)
+	public ResponseEntity<Boolean> update(@PathVariable("id") int id, @RequestBody User user){
+		return userService.updateUser(id, user)
+			? new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK)
+			: new ResponseEntity<Boolean>(Boolean.FALSE, HttpStatus.BAD_REQUEST);
 	}
 	
+	@RequestMapping(value="/users/{id}",method=RequestMethod.DELETE)
 	public ResponseEntity<Boolean> delete(@PathVariable("id") int id){
-		return new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK);
+		return userService.deleteUser(id)
+			? new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK)
+			: new ResponseEntity<Boolean>(Boolean.FALSE, HttpStatus.BAD_REQUEST);
 	}
 }

@@ -18,8 +18,8 @@ public class UserService {
 		this.userRepo = userRepo;
 	}
 
-	public void saveUser(User user){
-		userRepo.save(user);
+	public boolean saveUser(User user){
+		return userRepo.save(user);
 	}
 	
 	public List<User> getAllUsers(){
@@ -30,11 +30,11 @@ public class UserService {
 		return userRepo.find(id);
 	}
 	
-	public void updateUser(int id, User user){
-		userRepo.update(id, user);
+	public boolean updateUser(int id, User user){
+		return userRepo.update(id, user);
 	}
 	
-	public void deleteUser(int id){
-		userRepo.delete(id);
+	public boolean deleteUser(int id){
+		return userRepo.delete(id);
 	}
 }

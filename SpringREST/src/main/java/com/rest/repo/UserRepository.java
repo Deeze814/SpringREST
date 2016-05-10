@@ -22,8 +22,9 @@ public class UserRepository {
 		users.put(2, new User(2,"Victor","Schutz"));
 	}
 	
-	public void save(User user){
+	public boolean save(User user){
 		users.put(user.getUserID(), user);
+		return users.containsKey(user.getUserID());
 	}
 	
 	public List<User> findAll(){
@@ -34,11 +35,12 @@ public class UserRepository {
 		return users.get(id);
 	}
 	
-	public void update(int id, User user){
-		users.put(id, user);
+	public boolean update(int id, User user){
+		return users.replace(id, users.get(id), user);
+		
 	}
 	
-	public void delete(int id){
-		users.remove(id);
+	public boolean delete(int id){		
+		return users.remove(id,users.get(id));
 	}
 }

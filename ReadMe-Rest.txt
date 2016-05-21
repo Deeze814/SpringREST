@@ -36,3 +36,19 @@ To Access the web app, you have to enter http://localhost:8080/{artifact ID}
 	(1) To get the normal Project Explorer, go to Window --> Open Perspective --> JavaEE
 	(2) Switched form Luna to Mars and downloaded the JavaEE edition from:
 		http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/mars2 
+
+--Troubleshooting
+	(1) I created directory structure of /gitRest/SpringRest/SpringRest and used git bash to clone the repo into the new folder.
+	(2) I couldnt get eclipse to import the project because it kept saying it already existed in the work space.
+	(3) So I created a new folder structure, \gitRest\SimpleRestProject\SpringREST\SpringREST.
+	(4) Then I deleted all .metadata and RemoteSystemsTempFiles from the first directory (so eclipse didnt recognize this a as a workspace)
+	(5) And then Import --> Existing Maven Project, from the first directory into the second. 
+
+	(1) In order to get the newly imported project to track the existing remote git repo:
+	(2) In soucetree, Clone/New --> Add working copy, path to SpringRest project
+	(3) In sourcetree, edit repo settings and make the remote URL https://Deeze814@github.com/Deeze814/SpringREST.git
+	(4) Open git bash in the folder, and issue command:
+			$git branch --set-upstream master origin/master
+			--This told git to call my current local branch master and for it to tack the remote branch called master at the specified URL (https://Deeze814@github.com/Deeze814/SpringREST.git)
+	(5) Then I just Staged all changes to resolve the conflicts and then pushed.
+		
